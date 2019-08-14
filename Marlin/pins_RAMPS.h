@@ -271,7 +271,7 @@
 
 
 //custom stuff
-#undef HEATER_0_PIN 
+/*#undef HEATER_0_PIN 
 #undef HEATER_BED_PIN
 #undef FAN_PIN 
 
@@ -279,6 +279,7 @@
 #define HEATER_BED_PIN     RAMPS_D10_PIN
 #define FAN_PIN            RAMPS_D9_PIN
 
+ */
 
 
 
