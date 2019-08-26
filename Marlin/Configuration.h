@@ -784,10 +784,10 @@
 #define MIN_PROBE_EDGE 0
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 10000
+#define XY_PROBE_SPEED 15000
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST (2*HOMING_FEEDRATE_Z)
+#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
 
 // Feedrate (mm/m) for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW 100
@@ -795,7 +795,7 @@
 // The number of probes to perform at each point.
 //   Set to 2 for a fast/slow probe, using the second probe result.
 //   Set to 3 or more for slow probes, averaging the results.
-#define MULTIPLE_PROBING 2
+#define MULTIPLE_PROBING 3
 
 /**
  * Z probes require clearance when deploying, stowing, and moving between
