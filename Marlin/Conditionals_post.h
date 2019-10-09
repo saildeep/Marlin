@@ -1412,6 +1412,7 @@
 #else
   #define MOV_AXIS XYZ
   #define NUM_AXIS XYZE
+  
 #endif
 
 #endif // CONDITIONALS_POST_H

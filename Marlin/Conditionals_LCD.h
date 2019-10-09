@@ -411,6 +411,7 @@
   #define E_MANUAL        1  // or else get compiler error
   #undef  TEMP_SENSOR_0   
   #define TEMP_SENSOR_0 998    
+  #define NUM_AXIS_N 4
 #else  
   #if ENABLED(SWITCHING_EXTRUDER)                               // One stepper for every two EXTRUDERS
     #if EXTRUDERS > 4
