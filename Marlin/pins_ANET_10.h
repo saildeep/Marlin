@@ -100,7 +100,8 @@
 // Limit Switches
 //
 #define X_STOP_PIN         18
-#define Y_STOP_PIN         19
+#define Y_MIN_PIN         19
+#define Y_MAX_PIN         25 // repurpose heated bed  https://raw.githubusercontent.com/ralf-e/ANET-3D-Board-V1.0/master/ANET3D_Board_Schematic.png (digital pin numbering) 
 #define Z_STOP_PIN         20
 
 //
@@ -126,7 +127,7 @@
 // Temperature Sensors
 //
 #define TEMP_0_PIN          7   // Analog Input (pin 33 extruder)
-#define TEMP_BED_PIN        6   // Analog Input (pin 34 bed)
+#define TEMP_BED_PIN        7   // move to free up pin for y max endstop
 
 //
 // Heaters / Fans
