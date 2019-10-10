@@ -139,7 +139,7 @@
 
 // This defines the number of extruders
 // :[1, 2, 3, 4, 5]
-#define NO_EXTRUDERS
+//#define NO_EXTRUDERS
 #define EXTRUDERS 1
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
@@ -523,10 +523,10 @@
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG
 #define USE_YMIN_PLUG
-#define USE_ZMIN_PLUG
+//#define USE_ZMIN_PLUG
 //#define USE_XMAX_PLUG
 #define USE_YMAX_PLUG
-//#define USE_ZMAX_PLUG
+#define USE_ZMAX_PLUG
 
 // Enable pullup for all endstops to prevent a floating state
 #define ENDSTOPPULLUPS
@@ -947,8 +947,8 @@
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
 #define X_HOME_DIR -1
-#define Y_HOME_DIR -1
-#define Z_HOME_DIR -1
+#define Y_HOME_DIR 1
+#define Z_HOME_DIR 1
 
 // @section machine
 
@@ -1296,7 +1296,7 @@
 #endif
 
 // Homing speeds (mm/m)
-#define HOMING_FEEDRATE_XY (50*60)
+#define HOMING_FEEDRATE_XY (10*60)
 #define HOMING_FEEDRATE_Z  (4*60)
 
 // @section calibrate

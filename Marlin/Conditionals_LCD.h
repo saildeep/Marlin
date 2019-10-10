@@ -431,6 +431,7 @@
     #define E_STEPPERS      EXTRUDERS
     #define E_MANUAL        EXTRUDERS
   #endif
+  #define NUM_AXIS_N 4
 #endif
 
   /**

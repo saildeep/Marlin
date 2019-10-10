@@ -100,8 +100,8 @@
 // Limit Switches
 //
 #define X_STOP_PIN         18
-#define Y_MIN_PIN         19
-#define Y_MAX_PIN         25 // repurpose heated bed  https://raw.githubusercontent.com/ralf-e/ANET-3D-Board-V1.0/master/ANET3D_Board_Schematic.png (digital pin numbering) 
+#define Y_MIN_PIN         25
+#define Y_MAX_PIN         19 // repurpose heated bed  https://raw.githubusercontent.com/ralf-e/ANET-3D-Board-V1.0/master/ANET3D_Board_Schematic.png (digital pin numbering) 
 #define Z_STOP_PIN         20
 
 //
@@ -119,9 +119,13 @@
 #define Z_DIR_PIN           2
 #define Z_ENABLE_PIN       26
 
-#define E0_STEP_PIN         1
-#define E0_DIR_PIN          0
+#define E0_STEP_PIN        27
+#define E0_DIR_PIN         28
 #define E0_ENABLE_PIN      14
+
+#define E1_STEP_PIN         1
+#define E1_DIR_PIN          0
+#define E1_ENABLE_PIN      14
 
 //
 // Temperature Sensors
