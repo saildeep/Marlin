@@ -626,7 +626,7 @@
 
 // ANET A6 Firmwae V2.0 defaults: (steps/mm)
 // Xsteps/mm: +100.0, Ysteps/mm: +100.0, Zsteps/mm: +0400.0, eSteps/mm: +0095.0
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,  400, 400,5}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {3200,  200, 1600,5}
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,  80, 400, 95}
 
 /**
@@ -638,7 +638,7 @@
 
 // ANET A6 Firmware V2.0 defaults (Vmax):
 // Vmax x: 400, Vmax y: 400, Vmax z: 4, Vmax e: 25
-#define DEFAULT_MAX_FEEDRATE          {100, 100, 5,5}
+#define DEFAULT_MAX_FEEDRATE          {10, 10, 5,5}
 //#define DEFAULT_MAX_FEEDRATE          {400, 400, 20, 50}
 
 
@@ -652,7 +652,7 @@
 
 // ANET A6 Firmware V2.0 defaults (Amax):
 // Amx x: 9000, Amax Y: 5000, Amax z: 50, Amax e: 10000
-#define DEFAULT_MAX_ACCELERATION      { 50, 50, 50 ,100}
+#define DEFAULT_MAX_ACCELERATION      { 10, 10, 5 ,100}
 //#define DEFAULT_MAX_ACCELERATION      { 10000, 10000, 200, 10000 }
 
 /**
@@ -924,7 +924,7 @@
 //#define INVERT_Z_DIR false
 //ANET A6:
 #define INVERT_Y_DIR false
-#define INVERT_Z_DIR true
+#define INVERT_Z_DIR false
 
 // @section extruder
 
