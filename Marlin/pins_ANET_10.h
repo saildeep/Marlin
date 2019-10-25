@@ -102,8 +102,8 @@
 #define X_STOP_PIN         18
 #define Y_MIN_PIN         25
 #define Y_MAX_PIN         19 // repurpose heated bed  https://raw.githubusercontent.com/ralf-e/ANET-3D-Board-V1.0/master/ANET3D_Board_Schematic.png (digital pin numbering) 
-#define Z_STOP_PIN         20
-
+#define Z_MAX_PIN         20
+#define Z_MIN_PIN          24
 //
 // Steppers
 //
