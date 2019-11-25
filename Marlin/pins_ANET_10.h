@@ -136,7 +136,7 @@
 //
 // Heaters / Fans
 //
-#define HEATER_0_PIN       13   // (extruder)
+#define HEATER_0_PIN       12   // (extruder)
 #define HEATER_BED_PIN     12   // (bed)
 
 #ifndef FAN_PIN
