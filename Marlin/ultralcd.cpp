@@ -3331,6 +3331,8 @@ void lcd_quick_feedback(const bool clear_buttons) {
   void lcd_control_menu() {
     START_MENU();
     MENU_BACK(MSG_MAIN);
+    MENU_ITEM(gcode, "Enable Spindle",PSTR("M42 P13 S255"))
+    MENU_ITEM(gcode, "Disable Spindle",PSTR("M42 P13 S0"))
     MENU_ITEM(submenu, MSG_TEMPERATURE, lcd_control_temperature_menu);
     MENU_ITEM(submenu, MSG_MOTION, lcd_control_motion_menu);
 
