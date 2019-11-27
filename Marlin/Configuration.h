@@ -638,7 +638,7 @@
 
 // ANET A6 Firmware V2.0 defaults (Vmax):
 // Vmax x: 400, Vmax y: 400, Vmax z: 4, Vmax e: 25
-#define DEFAULT_MAX_FEEDRATE          {25, 25, 5,5}
+#define DEFAULT_MAX_FEEDRATE          {50, 100, 5,5}
 //#define DEFAULT_MAX_FEEDRATE          {400, 400, 20, 50}
 
 
@@ -979,7 +979,7 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define Z_MAX_POS 62
+#define Z_MAX_POS 55
 
 // ANET A6 with new X-Axis / modded Y-Axis:
 //#define X_BED_SIZE 235
