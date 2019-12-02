@@ -974,7 +974,7 @@
 //#define Z_MAX_POS 250
 
 // ANET A6, X0/Y0 0 front left bed edge :
-#define X_BED_SIZE 335
+#define X_BED_SIZE 350
 #define Y_BED_SIZE 809
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
