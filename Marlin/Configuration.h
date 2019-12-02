@@ -523,7 +523,7 @@
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG
 #define USE_YMIN_PLUG
-#define USE_ZMIN_PLUG
+//#define USE_ZMIN_PLUG
 //#define USE_XMAX_PLUG
 #define USE_YMAX_PLUG
 #define USE_ZMAX_PLUG
@@ -638,7 +638,7 @@
 
 // ANET A6 Firmware V2.0 defaults (Vmax):
 // Vmax x: 400, Vmax y: 400, Vmax z: 4, Vmax e: 25
-#define DEFAULT_MAX_FEEDRATE          {50, 100, 5,5}
+#define DEFAULT_MAX_FEEDRATE          {30, 60, 5,5}
 //#define DEFAULT_MAX_FEEDRATE          {400, 400, 20, 50}
 
 
@@ -687,8 +687,8 @@
  */
 // ANET A6 Firmware V2.0 defaults (jerk):
 // Vxy-jerk: 10, Vz-jerk: +000.30, Ve-jerk: 5
-#define DEFAULT_XJERK                   1.0
-#define DEFAULT_YJERK                   1.0
+#define DEFAULT_XJERK                   2.0
+#define DEFAULT_YJERK                   2.0
 #define DEFAULT_ZJERK                  0.3
 #define DEFAULT_EJERK                  5.0
 
@@ -716,7 +716,7 @@
  *
  * Enable this option for a probe connected to the Z Min endstop pin.
  */
-#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 /**
  * Z_MIN_PROBE_ENDSTOP
@@ -737,8 +737,8 @@
  * disastrous consequences. Use with caution and do your homework.
  *
  */
-//#define Z_MIN_PROBE_ENDSTOP
-
+#define Z_MIN_PROBE_ENDSTOP
+#define Z_MIN_PROBE_PIN 24
 /**
  * Probe Type
  *
@@ -974,7 +974,7 @@
 //#define Z_MAX_POS 250
 
 // ANET A6, X0/Y0 0 front left bed edge :
-#define X_BED_SIZE 275
+#define X_BED_SIZE 335
 #define Y_BED_SIZE 809
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
