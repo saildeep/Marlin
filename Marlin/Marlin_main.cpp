@@ -12727,6 +12727,16 @@ void process_parsed_command() {
         case 42: gcode_G42(); break;                              // G42: Move to mesh point
       #endif
 
+      #if ENABLED(CNC_COORDINATE_SYSTEMS)
+        case 53: gcode_G53(); break;
+        case 54: gcode_G54(); break;
+        case 55: gcode_G55(); break;
+        case 56: gcode_G56(); break;
+        case 57: gcode_G57(); break;
+        case 58: gcode_G58(); break;
+        case 59: gcode_G59(); break;
+      #endif
+
       case 90: relative_mode = false; break;                      // G90: Absolute coordinates
       case 91: relative_mode = true; break;                       // G91: Relative coordinates
 
