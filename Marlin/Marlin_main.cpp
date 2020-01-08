@@ -6539,11 +6539,6 @@ inline void gcode_G92() {
                 }
                 const float refCoordinate =coordinate_system[refCoordinateSystem][i];
                 
-                SERIAL_ECHOLNPAIR("refCoordinateSystem=", refCoordinateSystem);
-                SERIAL_ECHOLNPAIR("refCoordinate=", refCoordinate);
-                SERIAL_ECHOLNPAIR("d=", d);
-                SERIAL_ECHOLNPAIR("v=",v);
-                SERIAL_ECHOLNPAIR("currentPosition=",current_position[i]);
 
 
                 position_shift[i] = refCoordinate +d;
@@ -6565,6 +6560,28 @@ inline void gcode_G92() {
       }
     }
   }
+
+  #if ENABLED(CNC_COORDINATE_SYSTEMS)
+    if(parser.subcode == 3 && parser.seenval('A') && parser.seenval('B')){
+      const uint16_t sysIDA = parser.intval('A');
+      const uint16_t sysIDB = parser.intval('B');
+      if(sysIDA >= MAX_COORDINATE_SYSTEMS ||sysIDB >= MAX_COORDINATE_SYSTEMS){
+        SERIAL_ERROR_START();
+        SERIAL_ERRORLNPGM("Coordinate system is out of range");  
+      }else{
+        LOOP_XYZE(i){
+          if(parser.seen(axis_codes[i])){
+            if (parser.seenval(axis_codes[i])){
+              SERIAL_ERROR_START();
+              SERIAL_ERRORLNPGM("Do not provide a value for differential coordinate system setting, it doesnt have an effect");
+            }
+            position_shift[i] += coordinate_system[sysIDB][i] - coordinate_system[sysIDA][i];
+            update_software_endstops((AxisEnum)i);
+          }
+        }
+      }
+    }
+  #endif
 
   #if ENABLED(CNC_COORDINATE_SYSTEMS)
     // Apply workspace offset to the active coordinate system
