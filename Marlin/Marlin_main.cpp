@@ -6494,8 +6494,10 @@ inline void gcode_G92() {
 
   #if ENABLED(CNC_COORDINATE_SYSTEMS)
     #define IS_G92_0 (parser.subcode == 0)
+    #define IS_G92_2 (parser.subcode == 2)
   #else
     #define IS_G92_0 true
+    #define IS_G92_2 false
   #endif
 
   bool didE = false;
@@ -6505,13 +6507,11 @@ inline void gcode_G92() {
     constexpr bool didXYZ = false;
   #endif
 
-  if (IS_G92_0) LOOP_XYZE(i) {
+  if (IS_G92_0 || IS_G92_2) LOOP_XYZE(i) {
     if (parser.seenval(axis_codes[i])) {
       const float l = parser.value_axis_units((AxisEnum)i),
                   v = i == E_CART ? l : LOGICAL_TO_NATIVE(l, i),
-                  d = parser.subcode==2 ?
-                  v -coordinate_system[active_coordinate_system + 1% MAX_COORDINATE_SYSTEMS][i] - current_position[i]
-                  : v - current_position[i];
+                  d = v - current_position[i];
 
 
       if (!NEAR_ZERO(d)
@@ -6528,8 +6528,36 @@ inline void gcode_G92() {
             current_position[E_CART] = v; // When using coordinate spaces, only E is set directly
           }
           else {
-           
-            position_shift[i] += d;  
+            if(IS_G92_2){
+              if(parser.seenval('P')){
+                SERIAL_ECHO_START();
+                uint16_t refCoordinateSystem =parser.intval('P');
+                if(refCoordinateSystem>= MAX_COORDINATE_SYSTEMS){
+                  SERIAL_ERROR_START();
+                  SERIAL_ERRORLNPGM("Coordinate System does not exist, defaulting to G54");
+                  refCoordinateSystem = 0;
+                }
+                const float refCoordinate =coordinate_system[refCoordinateSystem][i];
+                
+                SERIAL_ECHOLNPAIR("refCoordinateSystem=", refCoordinateSystem);
+                SERIAL_ECHOLNPAIR("refCoordinate=", refCoordinate);
+                SERIAL_ECHOLNPAIR("d=", d);
+                SERIAL_ECHOLNPAIR("v=",v);
+                SERIAL_ECHOLNPAIR("currentPosition=",current_position[i]);
+
+
+                position_shift[i] = refCoordinate +d;
+
+              }else{
+                SERIAL_ERROR_START();
+                SERIAL_ERRORLNPGM("Reference Coordinate P for G92.2 not set");                
+              }
+             
+
+            }else{
+              
+              position_shift[i] += d;  
+            }
             // Other axes simply offset the coordinate space
             update_software_endstops((AxisEnum)i);
           }
