@@ -6509,7 +6509,9 @@ inline void gcode_G92() {
     if (parser.seenval(axis_codes[i])) {
       const float l = parser.value_axis_units((AxisEnum)i),
                   v = i == E_CART ? l : LOGICAL_TO_NATIVE(l, i),
-                  d = parser.subcode==2 ?v -coordinate_system[active_coordinate_system + 1% MAX_COORDINATE_SYSTEMS][i] : v - current_position[i];
+                  d = parser.subcode==2 ?
+                  v -coordinate_system[active_coordinate_system + 1% MAX_COORDINATE_SYSTEMS][i] - current_position[i]
+                  : v - current_position[i];
 
 
       if (!NEAR_ZERO(d)
