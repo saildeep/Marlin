@@ -6509,7 +6509,9 @@ inline void gcode_G92() {
     if (parser.seenval(axis_codes[i])) {
       const float l = parser.value_axis_units((AxisEnum)i),
                   v = i == E_CART ? l : LOGICAL_TO_NATIVE(l, i),
-                  d = v - current_position[i];
+                  d = parser.subcode==2 ?v -coordinate_system[active_coordinate_system + 1% MAX_COORDINATE_SYSTEMS][i] : v - current_position[i];
+
+
       if (!NEAR_ZERO(d)
         #if ENABLED(HANGPRINTER)
           || true // Hangprinter needs to update its line lengths whether current_position changed or not
@@ -6524,7 +6526,9 @@ inline void gcode_G92() {
             current_position[E_CART] = v; // When using coordinate spaces, only E is set directly
           }
           else {
-            position_shift[i] += d;       // Other axes simply offset the coordinate space
+           
+            position_shift[i] += d;  
+            // Other axes simply offset the coordinate space
             update_software_endstops((AxisEnum)i);
           }
         #endif
