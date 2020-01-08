@@ -6514,7 +6514,7 @@ inline void gcode_G92() {
                   d = v - current_position[i];
 
 
-      if (!NEAR_ZERO(d)
+      if (!NEAR_ZERO(d) || IS_G92_2
         #if ENABLED(HANGPRINTER)
           || true // Hangprinter needs to update its line lengths whether current_position changed or not
         #endif
